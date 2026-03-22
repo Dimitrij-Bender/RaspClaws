@@ -16,3 +16,7 @@ Bitte nicht !Debian version 13 (trixie)! sondern !Debian version	12 (bookworm)! 
 
 Danach müsst Ihr das 'Adeept RaspClaws' herunterladen und fertig.
 
+Ich habe die "DE_raspclaws.pdf" und "raspclaws.pdf" da reingestellt. Schaut auch da rein.
+
+Vielen Dank!
+
