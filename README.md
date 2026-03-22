@@ -10,7 +10,7 @@ Dann müsst Ihr das Betriebssystemen auswählen:
 
 <img width="693" height="497" alt="Bookworm" src="https://github.com/user-attachments/assets/b61950e3-0e6d-4bd1-8d66-bd4b7727b3cf" />
 
-<img width="1396" height="613" alt="Bookworm_1" src="https://github.com/user-attachments/assets/e216e5c3-434b-43e4-a96a-94092e24b51c" />
+
 
 Bitte nicht !Debian version 13 (trixie)! sondern !Debian version	12 (bookworm)! benutzen!
 
