@@ -31,7 +31,6 @@ direction_command = 'no'
 turn_command = 'no'
 pwm = Adafruit_PCA9685.PCA9685(busnum=1)
 pwm.set_pwm_freq(50)
-#pwm.set_pwm(14, 0, 4095)
 LED = LED.LED()
 
 SmoothMode = 0
@@ -152,44 +151,6 @@ def move_thread():
                     if step_set == 5:
                         step_set = 1
                     continue
-            elif direction_command == 'diag_left':
-                print("diag left move")
-                if SmoothMode:
-                    #move.dove_drehen(step_set,25,0.001,DPI,'diag_left')
-                    move.dove_drehen(step_set,25,0.001,DPI,'no')
-                    print("Eins")
-                    step_set += 1
-                    if step_set == 5:
-                        step_set = 1
-                    continue
-                else:
-                    #move.move_drehen(step_set, 25, 'diag_left')
-                    move.move_drehen(step_set, 25, 'no')
-                    print("Zwei")
-                    time.sleep(0.1)
-                    step_set += 1
-                    if step_set == 5:
-                        step_set = 1
-                    continue
-            elif direction_command == 'diag_right':
-                print("diag right move")
-                if SmoothMode:
-                    move.dove_drehen(step_set,25,0.001,DPI,'diag_right')
-                    print("Eins")
-                    step_set += 1
-                    if step_set == 5:
-                        step_set = 1
-                    continue
-                else:
-                    move.move_drehen(step_set, 25, 'diag_right')
-                    print("Zwei")
-                    time.sleep(0.1)
-                    step_set += 1
-                    if step_set == 5:
-                        step_set = 1
-                    continue
-            else:
-                pass
 
             if turn_command != 'no':
                 if SmoothMode:
@@ -381,15 +342,7 @@ def run():
         elif 'Switch_3_off' in data:
             switch.switch(3,0)
             tcpCliSock.send(('Switch_3_off').encode())
-            
-        ###
-        elif 'Switch_4_on' in data:
-            switch.switch(3,1)
-            tcpCliSock.send(('Switch_4_on').encode())
-
-        elif 'Switch_4_off' in data:
-            switch.switch(3,0)
-            tcpCliSock.send(('Switch_4_off').encode())
+        
             
 
         elif 'CVFL' in data:#2 start
