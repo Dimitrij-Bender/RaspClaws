@@ -35,20 +35,14 @@ tcpClicSock = ''
 root = ''
 stat = 0
 
-###
-Drehen_left = 0
-Drehen_right = 0
+
 Stop = 0
-Diagonal_left = 0
-Diagonal_right = 0
-Luefter_on = 0
-Luefter_off = 0
-###
+
 Switch_3 = 0
 Switch_2 = 0
 Switch_1 = 0
 SmoothMode = 0
-DiagonalMode = 0
+#DiagonalMode = 0
 
 ########>>>>>VIDEO<<<<<########
 
@@ -258,18 +252,6 @@ def call_headright(event):
 def call_headhome(event):
     tcpClicSock.send(('headhome').encode())
 
-def call_Luefter_on(event):
-    global c_lu_stu
-    if c_lu_stu == 0:
-        tcpClicSock.send(('luefter_on').encode())
-        c_lu_stu=1
-    
-def call_Luefter_off(event):
-    global c_lu_stu
-    if c_lu_stu == 1:
-        tcpClicSock.send(('luefter_off').encode())
-        c_l_stu=0
-
 
 def call_steady(event):
     if funcMode == 0:
@@ -345,36 +327,6 @@ def connection_thread():
         car_info = (tcpClicSock.recv(BUFSIZ)).decode()
         if not car_info:
             continue
-        ### 
-        elif 'Drehen_left_on' in car_info:
-            #Drehen_left = 1
-            Btn_Drehen_left.config(bg='#4CAF50')
-            c_ls_stu=1
-            tcpClicSock.send(('leftside').encode())
-            
-            
-        elif 'Drehen_left_off' in car_info:
-            #Drehen_left = 0
-            c_l_stu=0
-            c_ls_stu = 0
-            Btn_Drehen_left.config(bg=color_btn)
-
-            
-        elif 'Drehen_right_on' in car_info:
-            #Drehen_right = 1
-            Btn_Drehen_right.config(bg='#4CAF50')
-            c_rs_stu=1
-            tcpClicSock.send(('rightside').encode())
-            
-            
-            
-        elif 'Drehen_right_off' in car_info:
-            #Drehen_right = 0
-            c_r_stu = 0
-            c_rs_stu=0
-            Btn_Drehen_left.config(bg=color_btn)
-            
-        ###
         
         elif 'FindColor' in car_info:
             funcMode = 1
@@ -719,7 +671,6 @@ def loop():                   #GUI
 
         Btn_LeftSide = tk.Button(root, width=8, text='<--',fg=color_text,bg=color_btn,relief='ridge')
         Btn_LeftSide.place(x=30,y=260)
-        #Btn_LeftSide.place(x=30,y=195)
         Btn_LeftSide.bind('<ButtonPress-1>', call_LeftSide)
         Btn_LeftSide.bind('<ButtonRelease-1>', call_Turn_stop)
 
@@ -729,7 +680,6 @@ def loop():                   #GUI
         Btn_RightSide.bind('<ButtonRelease-1>', call_Turn_stop)
 
         Btn0.place(x=120,y=260)
-        #Btn1.place(x=100,y=230)
         Btn1.place(x=120,y=295)
         Btn2.place(x=30,y=295)
         Btn3.place(x=210,y=295)
