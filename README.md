@@ -1,5 +1,7 @@
 # Adeept RaspClaws
 
+YT: https://youtu.be/jEZLHdEBOa0
+
 Anleitung:
 Zuerst müsst Ihr "Raspberry Pi Imager" herunterladen.
 
